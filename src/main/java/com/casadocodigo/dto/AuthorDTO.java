@@ -1,5 +1,6 @@
 package com.casadocodigo.dto;
 
+import com.casadocodigo.annotations.UniqueValue;
 import com.casadocodigo.model.Author;
 
 import javax.validation.constraints.Email;
@@ -13,6 +14,7 @@ public class AuthorDTO {
 
     @Email(message = "Invalid email address")
     @NotBlank(message = "is required")
+    @UniqueValue(domainClass = Author.class, fieldName = "email", message = "already registered")
     private String email;
 
     @NotBlank(message = "is required")
