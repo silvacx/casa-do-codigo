@@ -31,7 +31,7 @@ public class UniqueValueValidator implements ConstraintValidator<UniqueValue, Ob
         query.setParameter("value", obj);
 
         List<?> list = query.getResultList();
-        Assert.state(list.size() <= 1, "já existe um elemento " + theClass + " com atributo o " + domainAttribute + "=" + obj);
+        Assert.state(list.size() <= 1, "there is already an element " + theClass + " with attribute " + domainAttribute + "=" + obj);
 
         return list.isEmpty();
     }
