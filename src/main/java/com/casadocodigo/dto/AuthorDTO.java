@@ -44,7 +44,7 @@ public class AuthorDTO {
         return description;
     }
 
-    public Author transformAuthor(){
+    public Author toModel(){
         return new Author(this.name, this.email, this.description);
     }
 }

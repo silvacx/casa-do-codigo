@@ -24,7 +24,7 @@ public class AuthorController {
     @PostMapping
     @Transactional
     public ResponseEntity<?> newAuthor(@RequestBody @Valid AuthorDTO authorDTO) {
-        Author createAuthor = authorDTO.transformAuthor();
+        Author createAuthor = authorDTO.toModel();
         entityManager.persist(createAuthor);
         return ResponseEntity.status(HttpStatus.OK).body(createAuthor);
     }

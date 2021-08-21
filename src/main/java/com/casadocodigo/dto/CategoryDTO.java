@@ -23,7 +23,7 @@ public class CategoryDTO {
         return name;
     }
 
-    public Category transformCategory() {
+    public Category toModel() {
         return new Category(this.name);
     }
 }
