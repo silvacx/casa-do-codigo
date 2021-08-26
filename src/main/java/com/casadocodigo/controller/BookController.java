@@ -1,6 +1,7 @@
 package com.casadocodigo.controller;
 
 import com.casadocodigo.dto.BookDTO;
+import com.casadocodigo.dto.BookDetailsDTO;
 import com.casadocodigo.model.Book;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -29,7 +30,7 @@ public class BookController {
     }
 
     @GetMapping
-    public ResponseEntity<?> listBooks() {
+    public ResponseEntity<?> listBook() {
         try {
             Query query = entityManager.createQuery("SELECT b FROM Book b", Book.class);
             List<Book> list = query.getResultList();
@@ -39,5 +40,16 @@ public class BookController {
         }
     }
 
+    @GetMapping(value = "/{id}")
+    public ResponseEntity<?> detailsBook(@PathVariable("id") Long id) {
+        Book oneBook = entityManager.find(Book.class, id);
+
+        if(oneBook == null) {
+            return ResponseEntity.status(HttpStatus.FOUND).build();
+        }
+
+        BookDetailsDTO bookDetailsDTO = new BookDetailsDTO(oneBook);
+        return ResponseEntity.status(HttpStatus.OK).body(bookDetailsDTO);
+    }
 
 }
