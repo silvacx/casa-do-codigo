@@ -11,7 +11,7 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.Date;
 
-@Entity
+@Entity(name = "books")
 public class Book {
 
   @Id

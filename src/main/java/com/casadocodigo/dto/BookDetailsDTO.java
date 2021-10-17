@@ -15,6 +15,11 @@ public class BookDetailsDTO {
     private String isbn;
     private String datePublish;
 
+
+    @Deprecated
+    public BookDetailsDTO() {
+    }
+
     public BookDetailsDTO(Book book) {
 
         author = new DetailsAuthorDTO(book.getAuthor());

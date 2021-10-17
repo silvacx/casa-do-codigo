@@ -21,11 +21,6 @@ public class AuthorDTO {
     @Size(max = 400, message = "400 characters")
     private String description;
 
-
-    @Deprecated
-    public AuthorDTO() {
-    }
-
     public AuthorDTO(@NotBlank String name, @Email @NotBlank String email, @NotBlank @Size(max = 400) String description) {
         this.name = name;
         this.email = email;

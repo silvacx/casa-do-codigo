@@ -45,7 +45,7 @@ public class BookController {
         Book oneBook = entityManager.find(Book.class, id);
 
         if(oneBook == null) {
-            return ResponseEntity.status(HttpStatus.FOUND).build();
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         }
 
         BookDetailsDTO bookDetailsDTO = new BookDetailsDTO(oneBook);

@@ -7,6 +7,10 @@ public class DetailsAuthorDTO {
     private String name;
     private String description;
 
+    @Deprecated
+    public DetailsAuthorDTO() {
+    }
+
     public DetailsAuthorDTO (Author author) {
         name = author.getName();
         description = author.getDescription();
