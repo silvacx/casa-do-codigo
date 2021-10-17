@@ -1,5 +1,7 @@
 package com.casadocodigo.model;
 
+import com.casadocodigo.annotations.UniqueValue;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
