@@ -23,7 +23,7 @@ public class CategoryController {
 
     @PostMapping
     @Transactional
-    public ResponseEntity<?> newCategory(@RequestBody @Valid CategoryDTO categoryDTO) {
+    public ResponseEntity<?> createCategory(@RequestBody @Valid CategoryDTO categoryDTO) {
         Category createCategory = categoryDTO.toModel();
         entityManager.persist(createCategory);
         return ResponseEntity.status(HttpStatus.OK).body(createCategory);

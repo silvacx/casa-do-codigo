@@ -1,7 +1,7 @@
 package com.casadocodigo.controller;
 
-import com.casadocodigo.dto.AuthorDTO;
-import com.casadocodigo.model.Author;
+import com.casadocodigo.dto.BuyerDTO;
+import com.casadocodigo.model.Buyer;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
@@ -15,17 +15,17 @@ import javax.persistence.PersistenceContext;
 import javax.validation.Valid;
 
 @RestController
-@RequestMapping(value="author")
-public class AuthorController {
+@RequestMapping(value = "buyer")
+public class BuyerController {
 
     @PersistenceContext
     EntityManager entityManager;
 
     @PostMapping
     @Transactional
-    public ResponseEntity<?> createAuthor(@RequestBody @Valid AuthorDTO authorDTO) {
-        Author createAuthor = authorDTO.toModel();
-        entityManager.persist(createAuthor);
-        return ResponseEntity.status(HttpStatus.OK).body(createAuthor);
+    public ResponseEntity<?> createBuyer(@RequestBody @Valid BuyerDTO buyerDTO) {
+        Buyer newBuyer = buyerDTO.toModel(entityManager);
+        entityManager.persist(newBuyer);
+        return ResponseEntity.status(HttpStatus.OK).body(newBuyer);
     }
 }

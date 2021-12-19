@@ -23,7 +23,7 @@ public class BookController {
 
     @PostMapping
     @Transactional
-    public ResponseEntity<?> newBook(@RequestBody @Valid BookDTO bookDTO) {
+    public ResponseEntity<?> createBook(@RequestBody @Valid BookDTO bookDTO) {
         Book createBook = bookDTO.toModel(entityManager);
         entityManager.persist(createBook);
         return ResponseEntity.status(HttpStatus.OK).body(createBook);
